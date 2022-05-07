@@ -1,18 +1,17 @@
-import { CustomerList } from "./customers/CustomerList"
-import { EmployeeList } from "./employees/EmployeeList"
-import { TicketList } from "./serviceTickets/TicketList"
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Login } from "./auth/Login";
+import { Register } from "./auth/Register";
+import { Home } from "./Home";
+import "./Repairs.css";
 
-export const Repairs = () => {
+export const Repairs = () => (
+  <Routes>
+    <Route path="*"
+      element={<Home/>}
+    />
 
-    return (
-        <>
-            <h1>Honey Rae's Repair Shop</h1>
-            <h2>Customer List</h2>
-            <CustomerList/>
-            <h2>Employee List</h2>
-            <EmployeeList/>
-            <h2>Service Tickets</h2>
-            <TicketList/>
-        </>
-    )
-}
+    <Route path="/login" element={<Login/>}/>
+    <Route path="/register" element={<Register/>}/>
+  </Routes>
+);
